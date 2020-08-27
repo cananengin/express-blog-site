@@ -1,0 +1,39 @@
+<div class="jumbotron text-center">
+    <h1>Editing <%= blog.title %></h1>
+</div>
+
+<% if(errors.length > 0) { %>
+    <div class="alert alert-danger">
+        <% for(error of errors) { %>
+            <%= error %><br>
+        <% } %>
+    </div>
+<% } %>
+
+<form action="/blogs/<%= blog.slug %>" method="POST">
+
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" name="name" class="form-control" value="<%= blog.name %>">
+    </div>
+
+    <div class="form-group">
+        <label>Lastname</label>
+        <input type="text" name="lastname" class="form-control" value="<%= blog.lastname %>">
+    </div>
+
+    <div class="form-group">
+        <label>Title</label>
+        <input type="text" name="title" class="form-control" value="<%= blog.title %>">
+    </div>
+
+    <div class="form-group">
+        <label>Description</label>
+        <textarea name="description" rows="20" class="form-control"><%= blog.description %></textarea>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-success btn-lg">Update</button>
+    </div>
+
+</form>
